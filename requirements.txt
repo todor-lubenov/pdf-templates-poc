@@ -1,0 +1,6 @@
+pdf2image
+pandas
+numpy
+scikit-image
+
+
