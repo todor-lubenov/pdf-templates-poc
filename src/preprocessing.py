@@ -115,11 +115,7 @@ def get_pdf_files_list_of_objects(base_uri: str) -> List:
 
 
 if __name__ == '__main__':
-    # Where customer PDF files are stored
-    base_uri = '/Users/todorlubenov/Documents/Allianz - UK submissions PoC (classified)/'
-
-    # Where normalized data will be stored
-    base_destination = '/Users/todorlubenov/Documents/AllianzUK/'
+    from . import base_uri, base_destination
 
     pdf_files = get_pdf_files_list_of_objects(base_uri)
     for el in pdf_files:
