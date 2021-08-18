@@ -54,12 +54,9 @@ def augment_objects(arr: List, uri: str):
 
     for e in arr:
         f_page = e['img_files_thumbnails'][0]
-        first_page = f"{uri}/{e['dpath']}/page_thumbnails/{f_page}"
-        first_page_image = io.imread(first_page)
-        hist, hist_centers = histogram(first_page_image)
+        first_page_image = io.imread(f"{uri}/{e['dpath']}/page_thumbnails/{f_page}")
         e['first_page_height'], e['first_page_width'], e['first_page_layers'] = first_page_image.shape
-        e['first_page_hist'] = hist
-        e['first_page_hist_centers'] = hist_centers
+        e['first_page_hist'], e['first_page_hist_centers'] = histogram(first_page_image)
         e['shannon_entropy_2'] = shannon_entropy(first_page_image, base=2)
         e['img_mean'] = np.mean(first_page_image)
         e['img_median'] = np.median(first_page_image)
